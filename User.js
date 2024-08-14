@@ -14,6 +14,6 @@ class User {
     }
   }
   
-  const user = new User('John Doe', 'john@email.com', 'securePassword');
-  user.login('john@email.com', 'securePassword');
-  user.login('john@email.com', 'wrongPassword'); 
+  const john = new User('John', 'john@email.com', '1234');
+  john.login('john@email.com', '1234');
+
