@@ -8,26 +8,24 @@ class Product {
 
     addToStock(quantity) {
         this.inStock += quantity;
+        console.log(`
+            Nome do produto: ${product.name}
+            Descrição do produto: ${product.description}
+            Valor do produto: R$${product.price.toFixed(2)}
+            Quantidade no estoque: ${product.inStock}
+            `);
     }
 
-    calculateDiscount(discountPercentage) {
-        const discountAmount = (this.price * discountPercentage) / 100;
-        return this.price - discountAmount; 
+    calculateDiscount(discount) {
+        this.price = this.price - (discount * this.price / 100)
+        console.log(`
+                ==================================
+                Desconto no produto: ${discount}%
+                Novo valor do produto: R$${newPrice.toFixed(2)}
+            `)
     }
 }
 
-const product = new Product("Notebook", "Notebook Nitro 5", 1000.00);
-
-product.addToStock(10); 
-
-console.log(`Nome do produto: ${product.name}`);
-console.log(`Descrição do produto: ${product.description}`);
-console.log(`Valor do produto: R$${product.price.toFixed(2)}`);
-console.log(`Quantidade no estoque: ${product.inStock}`);
-console.log("==================================");
-
-const discount = 5; 
-const newPrice = product.calculateDiscount(discount);
-
-console.log(`Desconto no produto: ${discount}%`);
-console.log(`Novo valor do produto: R$${newPrice.toFixed(2)}`);
+const Notebook = new Product("Notebook", "Notebook Nitro 5", 1000.00);
+Notebook.addToStock(10)
+Notebook.calculateDiscount(5)
